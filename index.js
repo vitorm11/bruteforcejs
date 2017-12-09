@@ -17,6 +17,7 @@ function resetPassword() {
 
 function breakPassword() {
   attempts = [];
+  passwordFound = false;
 
   while(passwordFound != true) {
     attemptedPassword = generatePassword();
