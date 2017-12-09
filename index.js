@@ -3,7 +3,7 @@ function generatePassword() {
 }
 
 function checkPassword(password) {
-  if(password == senhaGerada) {
+  if(password == generatedPassword) {
     return true;
   } else {
     return false;
@@ -11,25 +11,24 @@ function checkPassword(password) {
 }
 
 function resetarSenha() {
-  senhaGerada = generatePassword();
-  return senhaGerada;
+  generatedPassword = generatePassword();
+  return generatedPassword;
 }
 
 function quebrarSenha() {
-  tentativas = [];
-  senhaEncontrada = false;
+  attempts = [];
 
-  while(senhaEncontrada != true) {
-    senhaTentada = generatePassword();
-    while(tentativas.indexOf(senhaTentada) > -1) {
-      senhaTentada = generatePassword();
+  while(passwordFound != true) {
+    attemptedPassword = generatePassword();
+    while(attempts.indexOf(attemptedPassword) > -1) {
+      attemptedPassword = generatePassword();
     }
 
-    senhaEncontrada = checkPassword(senhaTentada);  
-    tentativas.push(senhaTentada);
+    passwordFound = checkPassword(attemptedPassword);  
+    attempts.push(attemptedPassword);
   }
 
-  return tentativas[tentativas.length-1];
+  return attempts[attempts.length-1];
 }
 
-var senhaGerada = generatePassword();
+var generatedPassword = generatePassword();
