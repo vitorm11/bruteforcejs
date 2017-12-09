@@ -10,12 +10,12 @@ function checkPassword(password) {
   }
 }
 
-function resetarSenha() {
+function resetPassword() {
   generatedPassword = generatePassword();
   return generatedPassword;
 }
 
-function quebrarSenha() {
+function breakPassword() {
   attempts = [];
 
   while(passwordFound != true) {
