@@ -1,9 +1,9 @@
-function gerarSenha() {
+function generatePassword() {
   return (Math.floor(Math.random() * 10000) + 10000).toString().substring(1);
 }
 
-function verificarSenha(senhaInformada) {
-  if(senhaInformada == senhaGerada) {
+function checkPassword(password) {
+  if(password == senhaGerada) {
     return true;
   } else {
     return false;
@@ -11,7 +11,7 @@ function verificarSenha(senhaInformada) {
 }
 
 function resetarSenha() {
-  senhaGerada = gerarSenha();
+  senhaGerada = generatePassword();
   return senhaGerada;
 }
 
@@ -20,16 +20,16 @@ function quebrarSenha() {
   senhaEncontrada = false;
 
   while(senhaEncontrada != true) {
-    senhaTentada = gerarSenha();
+    senhaTentada = generatePassword();
     while(tentativas.indexOf(senhaTentada) > -1) {
-      senhaTentada = gerarSenha();
+      senhaTentada = generatePassword();
     }
 
-    senhaEncontrada = verificarSenha(senhaTentada);  
+    senhaEncontrada = checkPassword(senhaTentada);  
     tentativas.push(senhaTentada);
   }
 
   return tentativas[tentativas.length-1];
 }
 
-var senhaGerada = gerarSenha();
+var senhaGerada = generatePassword();
